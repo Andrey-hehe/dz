@@ -1,0 +1,47 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">C. Кефа и парк</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>2 секунды</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Кефа решил отпраздновать свой первый крупный заработок походом в ресторан. </p><p>Он живет возле необычного парка. Парк представляет из себя подвешенное дерево из <span class="tex-span"><i>n</i></span> вершин c корнем в вершине <span class="tex-span">1</span>. В вершине <span class="tex-span">1</span> также находится дом Кефы. К сожалению для нашего героя, в парке также находятся коты. Кефа уже выяснил номера вершин, в которых находятся коты.</p><p>В листовых вершинах парка находятся рестораны. Кефа хочет выбрать ресторан, в который он пойдет, но, к сожалению, он очень боится котов, поэтому он ни за что не пойдёт в ресторан, на пути к которому от его дома найдётся более <span class="tex-span"><i>m</i></span> <span class="tex-font-style-bf">подряд идущих</span> вершин с котами. </p><p>Ваша задача — помочь Кефе посчитать количество ресторанов, в которые он может сходить.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке записаны два целых числа <span class="tex-span"><i>n</i></span> и <span class="tex-span"><i>m</i></span> (<span class="tex-span">2 ≤ <i>n</i> ≤ 10<sup class="upper-index">5</sup></span>, <span class="tex-span">1 ≤ <i>m</i> ≤ <i>n</i></span>) — количество вершин дерева и максимальное количество подряд идущих вершин с котами, которое способен перенести Кефа.</p><p>Во второй строке содержится <span class="tex-span"><i>n</i></span> целых чисел <span class="tex-span"><i>a</i><sub class="lower-index">1</sub>, <i>a</i><sub class="lower-index">2</sub>, ..., <i>a</i><sub class="lower-index"><i>n</i></sub></span>, где каждое <span class="tex-span"><i>a</i><sub class="lower-index"><i>i</i></sub></span> либо равняется <span class="tex-span">0</span> (тогда в вершине <span class="tex-span"><i>i</i></span> нет кота), либо равняется <span class="tex-span">1</span> (тогда в вершине <span class="tex-span"><i>i</i></span> есть кот).</p><p>В следующих <span class="tex-span"><i>n</i> - 1</span> строках записаны ребра дерева в формате «<span class="tex-span"><i>x</i><sub class="lower-index"><i>i</i></sub></span> <span class="tex-span"><i>y</i><sub class="lower-index"><i>i</i></sub></span>»(без кавычек) (<span class="tex-span">1 ≤ <i>x</i><sub class="lower-index"><i>i</i></sub>, <i>y</i><sub class="lower-index"><i>i</i></sub> ≤ <i>n</i></span>, <span class="tex-span"><i>x</i><sub class="lower-index"><i>i</i></sub> ≠ <i>y</i><sub class="lower-index"><i>i</i></sub></span>), где <span class="tex-span"><i>x</i><sub class="lower-index"><i>i</i></sub></span> и <span class="tex-span"><i>y</i><sub class="lower-index"><i>i</i></sub></span> — вершины дерева, соединенные очередным ребром. </p><p>Гарантируется, что данный набор рёбер задаёт дерево.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Одно целое число — количество различных листьев дерева, на пути от дома Кефы до которых не больше <span class="tex-span"><i>m</i></span> подряд идущих вершин с котами.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные<div title="Скопировать" data-clipboard-target="#id001437194380304473" id="id004312489463664575" class="input-output-copier">Скопировать</div></div><pre id="id001437194380304473">4 1<br>1 1 0 0<br>1 2<br>1 3<br>1 4<br></pre></div><div class="output"><div class="title">Выходные данные<div title="Скопировать" data-clipboard-target="#id009083855907215986" id="id005025968580881875" class="input-output-copier">Скопировать</div></div><pre id="id009083855907215986">2<br></pre></div><div class="input"><div class="title">Входные данные<div title="Скопировать" data-clipboard-target="#id008412544426928578" id="id009427657903569435" class="input-output-copier">Скопировать</div></div><pre id="id008412544426928578">7 1<br>1 0 1 1 0 0 0<br>1 2<br>1 3<br>2 4<br>2 5<br>3 6<br>3 7<br></pre></div><div class="output"><div class="title">Выходные данные<div title="Скопировать" data-clipboard-target="#id003984896242729089" id="id0001655060956285126" class="input-output-copier">Скопировать</div></div><pre id="id003984896242729089">2<br></pre></div></div></div><div class="note"><div class="section-title">Примечание</div><p>Напомним, что <span class="tex-font-style-it">дерево</span> — это связный граф на <span class="tex-span"><i>n</i></span> вершинах, состоящий из <span class="tex-span"><i>n</i> - 1</span> ребра. <span class="tex-font-style-it">Подвешенное</span> дерево — это дерево с особой выделенной вершиной, <span class="tex-font-style-it">корнем</span>. В подвешенном дереве из любых двух вершин, соединённых ребром, одна называется предком (та из них, что ближе к корню), а оставшаяся — ребёнком. Вершина называется <span class="tex-font-style-it">листом</span>, если у неё нет детей.</p><p>Пояснение к первому тесту из условия: <img class="tex-graphics" src="https://espresso.codeforces.com/d5a8860bc0e7f2b3af6eb8d282651cf293b2ca73.png" style="max-width: 100.0%;max-height: 100.0%;"> Красным цветом отмечены вершины в которых находятся коты. Рестораны находятся в вершинах 2, 3, 4. Кефа не может сходить только в ресторан, находящийся в вершине <span class="tex-span">2</span>.</p><p>Пояснение ко второму тесту из условия: <img class="tex-graphics" src="https://espresso.codeforces.com/4e80ab2e30751bfa146f6b2be04649530164fd0a.png" style="max-width: 100.0%;max-height: 100.0%;"> Рестораны находятся в вершинах 4, 5, 6, 7. Кефа не может попасть в рестораны 6, 7.</p></div></div></div>
+<div class="container mt-4">
+    <h2>Обработка данных</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="id_input_data" class="form-label">Входные данные:</label>
+            {{ form.input_data }}
+            {% if form.input_data.errors %}
+                <div class="text-danger">
+                    {{ form.input_data.errors }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Обработать</button>
+    </form>
+    
+    {% if show_output %}
+        <div class="mt-4 p-3 bg-light border rounded">
+            <h4>Результат обработки:</h4>
+            
+            <div class="mb-3">
+                <strong>Входные данные:</strong>
+                <div class="p-2 bg-white border rounded mt-1">
+                    {{ input_data|linebreaks }}
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <strong>Выходные данные:</strong>
+                <div class="p-2 bg-white border rounded mt-1">
+                    {{ output_data|linebreaks }}
+                </div>
+            </div>
+            
+        </div>
+    {% endif %}
+    
+</div>
+
+{% endblock %}
